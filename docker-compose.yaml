@@ -1,15 +1,14 @@
 version: '3.8'
 
 services:
-  frontend:
+  client:
     build:
       context: ./client
       dockerfile: Dockerfile
-    container_name: alicodes02/client
     ports:
       - "1170:1170"
     depends_on:
-      - alicodes02/auth
+      - auth
       - classrooms
       - event-bus
       - post
@@ -21,7 +20,6 @@ services:
     build:
       context: ./Auth
       dockerfile: Dockerfile
-    container_name: alicodes02/auth
     ports:
       - "3001:13170"
     networks:
@@ -31,7 +29,6 @@ services:
     build:
       context: ./Classrooms
       dockerfile: Dockerfile
-    container_name: alicodes02/classrooms
     ports:
       - "3002:23170"
     networks:
@@ -41,7 +38,6 @@ services:
     build:
       context: ./event-bus
       dockerfile: Dockerfile
-    container_name: alicodes02/event-bus
     ports:
       - "3003:33170"
     networks:
@@ -51,7 +47,6 @@ services:
     build:
       context: ./POST
       dockerfile: Dockerfile
-    container_name: alicodes02/post
     ports:
       - "3004:43170"
     networks:
