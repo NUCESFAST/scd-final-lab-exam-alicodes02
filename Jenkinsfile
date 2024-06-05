@@ -28,7 +28,7 @@ pipeline {
                     dir('event-bus') {
                         sh 'npm install'
                     }
-                    dir('POST') {
+                    dir('Post') {
                         sh 'npm install'
                     }
                 }
@@ -50,7 +50,7 @@ pipeline {
                     dir('event-bus') {
                         sh "docker build -t ${DOCKER_HUB_REPO}/event-bus:latest ."
                     }
-                    dir('POST') {
+                    dir('Post') {
                         sh "docker build -t ${DOCKER_HUB_REPO}/post:latest ."
                     }
                     // Build Docker image for MongoDB

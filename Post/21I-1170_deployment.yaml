@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: post
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: post
+  template:
+    metadata:
+      labels:
+        app: post
+    spec:
+      containers:
+      - name: client
+        image: alicodes02/post:latest
+        ports:
+        - containerPort: 41370
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: post-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 41370
+  selector:
+    app: post
