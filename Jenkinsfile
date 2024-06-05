@@ -6,10 +6,10 @@ pipeline {
         DOCKER_HUB_REPO = 'alicodes02'  
     }
     stages {
-        stage('Checkout') {
+        stage(' 21I-1170 Checkout') {
             steps {
                 // Checkout the code from GitHub
-                git url: 'https://github.com/NUCESFAST/scd-final-lab-exam-alicodes02.git', branch: 'main'  // Replace with your GitHub repo URL and branch
+                git url: 'https://github.com/NUCESFAST/scd-final-lab-exam-alicodes02.git', branch: 'master'  // Replace with your GitHub repo URL and branch
             }
         }
         stage('21I-1170 Install Dependencies') {
